@@ -90,6 +90,8 @@ maps.n["j"] =
 { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
 maps.n["k"] =
 { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
+maps.n["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
+maps.x["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>W"] =
 { function() vim.cmd("SudaWrite") end, desc = "Save as sudo" }
@@ -102,8 +104,8 @@ maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 -- maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 maps.i["<C-BS>"] = { "<C-W>", desc = "Enable CTRL+backsace to delete." }
-maps.n["0"] =
-{ "^", desc = "Go to the fist character of the line (aliases 0 to ^)" }
+-- In iterm2 on MacOS, the ctrl-backspace key combination is mapped to ctrl+h so we need to add a case for that.
+maps.i["<C-h>"] = { "<C-W>", desc = "Enable CTRL+backsace to delete." }
 maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>q"] = {
   function()
@@ -1050,10 +1052,10 @@ if is_available "toggleterm.nvim" then
   }
   maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "terminal" }
   maps.t["<F7>"] = maps.n["<F7>"]
-  maps.n["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
-  maps.t["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
-  maps.n["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
-  maps.t["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  -- maps.n["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  -- maps.t["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  -- maps.n["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  -- maps.t["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
 end
 
 -- extra - improved terminal navigation

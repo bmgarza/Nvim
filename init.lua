@@ -3,6 +3,9 @@
 -- This is the entry point of your config.
 -- ---------------------------------------
 
+-- This allows for the buffer to be modifiable by the vim distribution, allowing for the appearance of windows and such.
+vim.cmd("set modifiable")
+
 -- LOAD SOURCE FILES BY ORDER:
 vim.loader.enable()
 for _, source in ipairs {
@@ -24,4 +27,6 @@ if base.default_colorscheme then
       vim.log.levels.ERROR
     )
   end
+  vim.cmd("highlight colorcolumn ctermbg=16 guibg=grey")
 end
+

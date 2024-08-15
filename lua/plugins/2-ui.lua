@@ -27,6 +27,17 @@ local is_android = vim.fn.isdirectory('/data') == 1 -- true if on android
 
 return {
 
+  -- VSCode [theme]
+  -- https://github.com/Mofiqul/vscode.nvim
+  {
+    "Mofiqul/vscode.nvim",
+    event = "User LoadColorSchemes",
+    opts = {
+      italic_comments = true,
+      underline_links = true,
+    }
+  },
+
   -- tokyonight [theme]
   -- https://github.com/folke/tokyonight.nvim
   {

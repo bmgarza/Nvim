@@ -99,7 +99,7 @@ maps.x["<Leader>/"] = { "gc", remap = true, desc = "Toggle comment" }
 maps.n["gx"] =
 { utils.open_with_program, desc = "Open the file under cursor with a program" }
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
-maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
+-- maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 maps.i["<C-BS>"] = { "<C-W>", desc = "Enable CTRL+backsace to delete." }
 maps.n["0"] =
@@ -134,7 +134,7 @@ if not is_android then
   maps.x["<C-y>"] = { '"+y<esc>', desc = "Copy to cliboard" }
   maps.n["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
   maps.x["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
-  maps.n["<C-p>"] = { '"+p<esc>', desc = "Paste from clipboard" }
+  -- maps.n["<C-p>"] = { '"+p<esc>', desc = "Paste from clipboard" }
 end
 
 -- Make 'c' key not copy to clipboard when changing a character.
@@ -679,20 +679,20 @@ end
 
 -- session manager ---------------------------------------------------------
 if is_available "neovim-session-manager" then
-  maps.n["<leader>S"] = icons.S
-  maps.n["<leader>Sl"] = {
+  maps.n["<leader>s"] = icons.S
+  maps.n["<leader>sl"] = {
     "<cmd>SessionManager! load_last_session<cr>",
     desc = "Load last session",
   }
-  maps.n["<leader>Ss"] = {
+  maps.n["<leader>ss"] = {
     "<cmd>SessionManager! save_current_session<cr>",
     desc = "Save this session",
   }
-  maps.n["<leader>Sd"] =
+  maps.n["<leader>sd"] =
   { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
-  maps.n["<leader>Sf"] =
+  maps.n["<leader>sf"] =
   { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
-  maps.n["<leader>S."] = {
+  maps.n["<leader>s."] = {
     "<cmd>SessionManager! load_current_dir_session<cr>",
     desc = "Load current directory session",
   }
@@ -841,16 +841,10 @@ if is_available "telescope.nvim" then
     function() require("telescope.builtin").marks() end,
     desc = "Find marks",
   }
-  maps.n["<leader>fa"] = {
+  maps.n["<C-p>"] = {
     function()
-      local cwd = vim.fn.stdpath "config" .. "/.."
-      local search_dirs = { vim.fn.stdpath "config" }
-      if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
       require("telescope.builtin").find_files {
-        prompt_title = "Config Files",
-        search_dirs = search_dirs,
-        cwd = cwd,
-        follow = true,
+        prompt_title = "Find Files",
       } -- call telescope
     end,
     desc = "Find nvim config files",
@@ -917,7 +911,8 @@ if is_available "telescope.nvim" then
     end,
     desc = "Find themes",
   }
-  maps.n["<leader>ff"] = {
+  -- maps.n["<leader>ff"] = {
+  maps.n["<C-f>"] = {
     function()
       require("telescope.builtin").live_grep {
         additional_args = function(args)
@@ -1055,8 +1050,10 @@ if is_available "toggleterm.nvim" then
   }
   maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "terminal" }
   maps.t["<F7>"] = maps.n["<F7>"]
-  maps.n["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
-  maps.t["<C-'>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  maps.n["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  maps.t["<C-`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  maps.n["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
+  maps.t["<`>"] = maps.n["<F7>"] -- requires terminal that supports binding <C-'>
 end
 
 -- extra - improved terminal navigation

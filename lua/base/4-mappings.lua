@@ -92,6 +92,7 @@ maps.n["k"] =
 { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
 maps.n["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
 maps.x["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
+maps.n["<cr>"] = { "j", desc = "Down 1 line." }
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>W"] =
 { function() vim.cmd("SudaWrite") end, desc = "Save as sudo" }

@@ -150,29 +150,29 @@ return {
   --  render-markdown.nvim [normal mode markdown]
   --  https://github.com/MeanderingProgrammer/render-markdown.nvim
   --  While on normal mode, markdown files will display highlights.
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    ft = { "markdown" },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {
-      heading = {
-        sign = false,
-        icons = { ' ', ' ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
-        width = "block",
-      },
-      code = {
-        sign = false,
-        width = 'block', -- use 'language' if colorcolumn is important for you.
-        right_pad = 1,
-      },
-      dash = {
-        width = 79
-      },
-      pipe_table = {
-        style = 'full', -- use 'normal' if colorcolumn is important for you.
-      },
-    },
-  },
+--   {
+--     'MeanderingProgrammer/render-markdown.nvim',
+--     ft = { "markdown" },
+--     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+--     opts = {
+--       heading = {
+--         sign = false,
+--         icons = { ' ', ' ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+--         width = "block",
+--       },
+--       code = {
+--         sign = false,
+--         width = 'block', -- use 'language' if colorcolumn is important for you.
+--         right_pad = 1,
+--       },
+--       dash = {
+--         width = 79
+--       },
+--       pipe_table = {
+--         style = 'full', -- use 'normal' if colorcolumn is important for you.
+--       },
+--     },
+--   },
 
   --  [hex colors]
   --  https://github.com/brenoprata10/nvim-highlight-colors
@@ -408,8 +408,8 @@ return {
         { path = "noice.nvim", mods = { "noice", "telescope" } },
         { path = "nvim-web-devicons", mods = { "nvim-web-devicons" } },
         { path = "lspkind.nvim", mods = { "lspkind" } },
-        { path = "nvim-scrollbar", mods = { "scrollbar" } },
-        { path = "mini.animate", mods = { "mini.animate" } },
+        -- { path = "nvim-scrollbar", mods = { "scrollbar" } },
+        -- { path = "mini.animate", mods = { "mini.animate" } },
         { path = "highlight-undo.nvim", mods = { "highlight-undo" } },
         { path = "which-key.nvim", mods = { "which-key" } },
 
@@ -417,7 +417,7 @@ return {
         { path = "nvim-ts-autotag", mods = { "nvim-ts-autotag" } },
         { path = "nvim-treesitter-textobjects", mods = { "nvim-treesitter", "nvim-treesitter-textobjects" } },
         { path = "ts-comments.nvim", mods = { "ts-comments" } },
-        { path = "markdown.nvim", mods = { "render-markdown" } },
+        -- { path = "markdown.nvim", mods = { "render-markdown" } },
         { path = "nvim-highlight-colors", mods = { "nvim-highlight-colors" } },
         { path = "nvim-java", mods = { "java" } },
         { path = "nvim-lspconfig", mods = { "lspconfig" } },

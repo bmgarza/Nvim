@@ -92,7 +92,9 @@ maps.n["k"] =
 { "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Move cursor up" }
 maps.n["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
 maps.x["$"] = { "$l", remap = true, desc = "Move to EOL+1" }
-maps.n["<cr>"] = { "j", desc = "Down 1 line." }
+maps.n["<CR>"] = { "j", desc = "Down 1 line." }
+maps.n["''"] = { "<C-o>", desc = "Go to last jump location." }
+maps.n["<C-]"] = { "gd", desc = "Go to definition." }
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n["<leader>W"] =
 { function() vim.cmd("SudaWrite") end, desc = "Save as sudo" }
@@ -333,7 +335,15 @@ maps.n["<b"] = {
   desc = "Move buffer tab left",
 }
 
+maps.n["<C-Tab>"] = {
+  function() vim.cmd("b#") end,
+  desc = "Switch to last open buffer",
+}
 maps.n["<leader>b"] = icons.b
+maps.n["<leader>bn"] = {
+  function() vim.cmd("echo expand('%')") end,
+  desc = "Get the full path of current buffer",
+}
 maps.n["<leader>bc"] = {
   function() require("heirline-components.buffer").close_all(true) end,
   desc = "Close all buffers except current",

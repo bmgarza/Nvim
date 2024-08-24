@@ -447,6 +447,9 @@ return {
       end
       return {
         -- cwd = (vim.fn.fnamemodify(v:this_session, ':t'):gsub("__", "/")),
+        -- TODO: Need to figure out something to ensure that telescope is always going to be searching from the root of
+        -- the session, instead of from the root of the git repository. This is because any submodule in a repository
+        -- will ruin the search works and makes everything harder to navigate.
         cwd = get_git_root(),
         defaults = {
           prompt_prefix = get_icon("Selected", 1),

@@ -128,6 +128,8 @@ maps.n["<Tab>"] = {
   expr = false,
   desc = "FIX: Prevent TAB from behaving like <C-i>, as they share the same internal code",
 }
+maps.n["H"] = { ":foldclose<cr>", desc = "Close current fold" }
+maps.n["L"] = { ":foldopen<cr>", desc = "Open current fold" }
 
 -- clipboard ---------------------------------------------------------------
 
